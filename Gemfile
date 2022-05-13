@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'cube-ruby', require: 'cube'
+gem 'faraday', '~> 1.9'
+gem 'ffi'
+gem 'minitest', '~> 4.0'
+gem 'oj', '~> 2.0'
 gem 'rake', '~> 10.0'
 gem 'redis'
-gem 'minitest', '~> 4.0'
-gem 'cube-ruby', require: "cube"
 gem 'ruby-xxHash'
-gem 'ffi', '< 1.9.22'
 
 # Development
 gem 'pry', group: :development
