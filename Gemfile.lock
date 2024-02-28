@@ -1,7 +1,17 @@
 GIT
-  remote: https://github.com/ncbo/goo.git
-  revision: 75436fe8e387febc53e34ee31ff0e6dd837a9d3f
+  remote: https://github.com/ontoportal-lirmm/sparql-client.git
+  revision: fb4a89b420f8eb6dda5190a126b6c62e32c4c0c9
   branch: master
+  specs:
+    sparql-client (1.0.1)
+      json_pure (>= 1.4)
+      net-http-persistent (= 2.9.4)
+      rdf (>= 1.0)
+
+GIT
+  remote: https://github.com/ontoportal-lirmm/goo.git
+  revision: dd9681d91873341850df5b49a0e7b8dd87a3d252
+  branch: development
   specs:
     goo (0.0.2)
       addressable (~> 2.8)
@@ -14,9 +24,9 @@ GIT
       uuid
 
 GIT
-  remote: https://github.com/ncbo/ontologies_linked_data.git
-  revision: ee0013f0ee23876076bff9d9258b46371ec3b248
-  branch: master
+  remote: https://github.com/ontoportal-lirmm/ontologies_linked_data.git
+  revision: fa49a53a6f14569a8ad77bcd1baa503f2380c011
+  branch: development
   specs:
     ontologies_linked_data (0.0.1)
       activesupport
@@ -32,16 +42,6 @@ GIT
       rack-test
       rsolr
       rubyzip
-
-GIT
-  remote: https://github.com/ncbo/sparql-client.git
-  revision: d418d56a6c9ff5692f925b45739a2a1c66bca851
-  branch: master
-  specs:
-    sparql-client (1.0.1)
-      json_pure (>= 1.4)
-      net-http-persistent (= 2.9.4)
-      rdf (>= 1.0)
 
 GEM
   remote: https://rubygems.org/
