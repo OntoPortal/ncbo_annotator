@@ -630,6 +630,7 @@ class TestAnnotator < TestCase
         class_id = terms_a[i]
         ont_acr = onts_a[i]
         sub = LinkedData::Models::Ontology.find(ont_acr).first.latest_submission
+        binding.pry if sub.nil?
         sub.bring(ontology: [:acronym])
         c = LinkedData::Models::Class.find(RDF::URI.new(class_id))
                                     .in(sub)
