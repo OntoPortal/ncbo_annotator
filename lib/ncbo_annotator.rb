@@ -14,7 +14,6 @@ require_relative 'annotation'
 require_relative 'ncbo_annotator/mgrep/mgrep'
 require_relative 'ncbo_annotator/config'
 require_relative 'ncbo_annotator/monkeypatches'
-require_relative 'ncbo_recommender'
 
 # Require all models
 project_root = File.dirname(File.absolute_path(__FILE__))
@@ -340,7 +339,7 @@ module Annotator
                                     resourceId,
                                     Annotator::Annotation::MATCH_TYPES[:type_synonym],
                                     syn,
-                                    semanticTypes) unless (syn.casecmp(prefLabel) == 0)
+                                    semanticTypes) unless (syn.to_s.casecmp(prefLabel) == 0)
                 end
                 create_term_entry(redis,
                                   redis_prefix,
@@ -662,11 +661,11 @@ module Annotator
       def create_term_entry(redis, instance_prefix, ontResourceId, resourceId, label_type, val, semanticTypes)
         begin
           # NCBO-696 - Remove case-sensitive variations on terms in annotator dictionary
-          val.upcase!()
+          val.to_s.upcase!()
         rescue ArgumentError => e
           # NCBO-832 - SCTSPA Annotator Cache building error (UTF-8)
           val = val.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
-          val.upcase!()
+          val.to_s.upcase!()
         end
 
         # exclude single-character or empty/null values
